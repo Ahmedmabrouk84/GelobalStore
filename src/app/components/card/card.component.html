@@ -1,0 +1,42 @@
+<section class="p-4">
+  <div class="container">
+    <h2 class="text-center  mb-5 text-uppercase">welcome in our clothes store</h2>
+    <div class="row g-4">
+      @for (product of productList ; track $index) {
+     
+      @if ( product.category !== 'electronics' && product.category !== 'jewelery' ) {
+
+        <div class="col-md-4 col-lg-3">
+          <div class="card h-100 rounded-3">
+            <div class="">
+              <img
+                [src]="product.image"
+                class="w-100 p-2 rounded-top-3"
+                [alt]="product.title"
+              />
+            </div>
+            <div class="p-3">
+              <div class="border-bottom">
+                <h2 class="h5">
+                 <span class="text-primary"> Title:</span> {{ product.title.split(" ", 2).join(" ") }}
+                </h2>
+                <h3 class="h5">
+                  <span class="text-primary"> categories:</span> : {{ product.category.split(" ", 2).join(" ") }}
+                </h3>
+              </div>
+              <p class="p-3">
+                {{ product.description.split(" ", 15).join(" ") }}
+              </p>
+              <div class="footer d-flex align-items-center justify-content-evenly border-top p-2">
+                <span><span class="small text-primary ">Price: </span> {{ product.price }}</span>
+                <span>Rate: {{ product.rating.rate }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      }
+      }
+    </div>
+  </div>
+</section>
